@@ -22,7 +22,7 @@ public class GroupCreationTests {
     @BeforeMethod
     public void setUp() throws Exception {
         FirefoxBinary bin = new FirefoxBinary(new File("c:\\Program Files\\Mozilla Firefox\\firefox.exe"));
-        WebDriver driver = new FirefoxDriver(bin, new FirefoxProfile());
+        wd = new FirefoxDriver(bin, new FirefoxProfile());
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
     
