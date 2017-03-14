@@ -40,4 +40,9 @@ public class ContactHelper extends HelperBase {
   public void deleteSelectedContacts() {
     click(By.xpath("//form[@action='delete.php']//input[@name='update']"));
   }
+
+
+
 }
+
+
