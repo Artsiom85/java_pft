@@ -7,11 +7,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 /**
  * Created by Artsiom on 3/14/2017.
  */
-public class ContactHelper {
-  private FirefoxDriver wd;
+public class ContactHelper extends HelperBase {
 
   public ContactHelper(FirefoxDriver wd) {
-    this.wd = wd;
+    super (wd);
   }
 
   public void switchToWindowPopup() {
@@ -28,18 +27,8 @@ public class ContactHelper {
     click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
-  private void type(By locator, String text) {
-    click(locator);
-    wd.findElement(locator).clear();
-    wd.findElement(locator).sendKeys(text);
-  }
-
   public void initNewContactCreation() {
     click(By.linkText("add new"));
-  }
-
-  private void click(By locator) {
-    wd.findElement(locator).click();
   }
 
   public void returnToHomePage() {
@@ -51,7 +40,7 @@ public class ContactHelper {
   }
 
   public void selectContact() {
-    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img");
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
 
   }
 }

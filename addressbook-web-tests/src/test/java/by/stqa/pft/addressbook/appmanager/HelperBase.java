@@ -8,14 +8,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  * Created by Artsiom on 3/12/2017.
  */
 public class HelperBase {
-  public FirefoxDriver wd;
+  protected FirefoxDriver wd;
 
   public HelperBase(FirefoxDriver wd) {
-    this.wd = wd;
-  }
-
-  protected void click(By locator) {
-    wd.findElement(locator).click();
   }
 
   protected void type(By locator, String text) {
@@ -32,5 +27,9 @@ public class HelperBase {
     } catch (NoAlertPresentException e) {
       return false;
     }
+  }
+
+  protected void click(By locator) {
+    wd.findElement(locator).click();
   }
 }
