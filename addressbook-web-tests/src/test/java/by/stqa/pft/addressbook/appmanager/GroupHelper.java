@@ -1,7 +1,6 @@
 package by.stqa.pft.addressbook.appmanager;
 
 import by.stqa.pft.addressbook.model.GroupData;
-import com.sun.javafx.binding.ExpressionHelperBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
