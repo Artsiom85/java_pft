@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 
+
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +16,9 @@ import java.util.concurrent.TimeUnit;
  * Created by Artsiom on 3/8/2017.
  */
 public class ApplicationManager {
-    WebDriver wd;
+
+  private final String browser;
+  WebDriver wd;
 
   private ContactHelper contactHelper;
   private SessionHelper sessionHelper;
@@ -26,16 +29,16 @@ public class ApplicationManager {
     this.browser = browser;
   }
    public void init() {
-       if (browser == BrowserType.FIREFOX) {
-         wd = new FirefoxDriver(bin, new FirefoxProfile());
-         FirefoxBinary bin = new FirefoxBinary(new File("c:\\Program Files\\Mozilla Firefox\\firefox.exe"));
+     if (browser == BrowserType.FIREFOX) {
+       FirefoxBinary bin = new FirefoxBinary(new File("c:\\Program Files\\Mozilla Firefox\\firefox.exe"));
+       wd = new FirefoxDriver(bin, new FirefoxProfile());
      } else if (browser == BrowserType.CHROME){
        wd = new ChromeDriver();
      } else if (browser == BrowserType.IE){
        wd = new InternetExplorerDriver();
      }
 
-    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/addressbook/");
     groupHelper = new GroupHelper(wd);
     contactHelper = new ContactHelper(wd);
