@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.BrowserType;
 
 
 import java.io.File;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -29,16 +30,16 @@ public class ApplicationManager {
     this.browser = browser;
   }
    public void init() {
-     if (browser == BrowserType.FIREFOX) {
+     if (Objects.equals(browser, BrowserType.FIREFOX)) {
        FirefoxBinary bin = new FirefoxBinary(new File("c:\\Program Files\\Mozilla Firefox\\firefox.exe"));
        wd = new FirefoxDriver(bin, new FirefoxProfile());
-     } else if (browser == BrowserType.CHROME){
+     } else if (Objects.equals(browser, BrowserType.CHROME)){
        wd = new ChromeDriver();
-     } else if (browser == BrowserType.IE){
+     } else if (Objects.equals(browser, BrowserType.IE)){
        wd = new InternetExplorerDriver();
      }
 
-    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/addressbook/");
     groupHelper = new GroupHelper(wd);
     contactHelper = new ContactHelper(wd);
