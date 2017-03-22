@@ -41,6 +41,21 @@ public class ContactHelper extends HelperBase {
   public void deleteSelectedContacts() {
     click(By.xpath("//form[@action='delete.php']//input[@name='update']"));
   }
+
+  public void createContact(ContactData contact) {
+    initNewContactCreation();
+    fillContactForm(contact, true);
+    returnToHomePage();
+  }
+
+  private void returnToHomePage()  {
+    click(By.linkText("home"));
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  }
 }
+
 
 
