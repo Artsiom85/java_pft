@@ -9,9 +9,12 @@ import org.testng.annotations.Test;
 public class GroupModificationTests extends TestBase {
 
   @Test
-  public void testGroupModification(){
+  public void testGroupModification() {
     app.getNavigationHelper().gotoGroupPage();
-    app.getGroupHelper().selectGroup();
+    if (!app.getGroupHelper().isThereAGroup()) {
+      app.getGroupHelper().createGroup(new GroupData("test07", null, "test09"));
+    }
+      app.getGroupHelper().selectGroup();
     app.getGroupHelper().initGroupModification();
     app.getGroupHelper().fillGroupForm(new GroupData("test07", "test08", "test09"));
     app.getGroupHelper().submitGroupModification();
