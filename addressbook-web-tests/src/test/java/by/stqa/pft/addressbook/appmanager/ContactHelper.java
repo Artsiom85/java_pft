@@ -15,8 +15,6 @@ public class ContactHelper extends HelperBase {
     super (wd);
   }
 
-
-
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
@@ -36,10 +34,6 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void returnToHomePage() {
-    click(By.linkText("home"));
-  }
-
   public void selectContact() {
     click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
 
@@ -47,9 +41,6 @@ public class ContactHelper extends HelperBase {
   public void deleteSelectedContacts() {
     click(By.xpath("//form[@action='delete.php']//input[@name='update']"));
   }
-
-
-
 }
 
 
