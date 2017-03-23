@@ -12,7 +12,7 @@ import org.testng.Assert;
 public class ContactHelper extends HelperBase {
 
   public ContactHelper(WebDriver wd) {
-    super (wd);
+    super(wd);
   }
 
   public void fillContactForm(ContactData contactData, boolean creation) {
@@ -23,7 +23,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("home"), contactData.getHomephone());
     type(By.name("email"), contactData.getEmail());
     if (creation) {
-     new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -38,27 +38,38 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
 
   }
+
   public void deleteSelectedContacts() {
     click(By.xpath("//form[@action='delete.php']//input[@name='update']"));
   }
 
-  public void createContact(ContactData contact) {
+  public void createContact(ContactData contact, boolean b) {
     initNewContactCreation();
     fillContactForm(contact, true);
     returnToHomePage();
   }
 
-  private void returnToHomePage()  {
+  private void returnToHomePage() {
     click(By.linkText("home"));
   }
 
   public void initContactModification() {
+    click(By.xpath("//tr[@class='odd']/td[8]/a/img"));
+  }
+
+  public void submitContactModification() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
 
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
   }
+
+  public int getContactCount() {
+    return wd.findElements(By.name("selected[]")).size();
+  }
+
+
 }
 
 

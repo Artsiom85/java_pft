@@ -36,11 +36,11 @@ public class HelperBase {
     }
   }
 
-  protected void click(By locator) {
+  public void click(By locator) {
     wd.findElement(locator).click();
   }
 
-  protected boolean isElementPresent(By locator) {
+  public  boolean isElementPresent(By locator) {
     try {
       wd.findElement(locator);
       return true;
