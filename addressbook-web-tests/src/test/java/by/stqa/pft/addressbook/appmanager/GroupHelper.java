@@ -47,11 +47,7 @@ public class GroupHelper extends HelperBase {
     click(By.name("update"));
   }
 
-  public void initContactModification() {
-    click(By.xpath("//div[@id='content']/form[1]/input[22]"));
-  }
-
-  public void createGroup(GroupData group) {
+   public void createGroup(GroupData group) {
     initGroupCreation();
     fillGroupForm(group);
     submitGroupCreation();
@@ -60,5 +56,9 @@ public class GroupHelper extends HelperBase {
 
   public boolean isThereAGroup() {
     return isElementPresent(By.name("selected[]"));
+  }
+
+  public int getGroupCount() {
+    return wd.findElements(By.name("selected[]")).size();
   }
 }
