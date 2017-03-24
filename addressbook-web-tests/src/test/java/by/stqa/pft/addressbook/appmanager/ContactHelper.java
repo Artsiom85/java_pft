@@ -34,13 +34,12 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void selectContact() {
-    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
-
+  public void selectContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void deleteSelectedContacts() {
-    click(By.xpath("//form[@action='delete.php']//input[@name='update']"));
+    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
   }
 
   public void createContact(ContactData contact, boolean b) {
@@ -70,6 +69,9 @@ public class ContactHelper extends HelperBase {
   }
 
 
+  public void closeWindow() {
+    wd.switchTo().alert().accept();
+  }
 }
 
 
