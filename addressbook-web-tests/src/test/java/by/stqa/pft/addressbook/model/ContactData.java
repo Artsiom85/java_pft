@@ -32,6 +32,7 @@ public class ContactData {
     this.group = group;
   }
 
+
   public int getId() {
     return id;
   }
