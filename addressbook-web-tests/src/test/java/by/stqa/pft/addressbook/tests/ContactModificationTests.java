@@ -20,7 +20,7 @@ public class ContactModificationTests extends TestBase {
     }
   }
 
-  @Test
+  @Test (enabled = false)
   public void testContactModification() {
     app.goTo().homePage();
     List<ContactData> before = app.contact().list();

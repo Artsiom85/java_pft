@@ -15,7 +15,7 @@ public class ContactDeletionTests extends TestBase {
       app.contact().create(new ContactData("Bob", "Marley", null, "Jamaica", "911", "bobmarley@gmail.com", "test07"));
     }
   }
-  @Test
+  @Test (enabled = false)
   public void ContactDeletionTests() {
     app.goTo().homePage();
     List<ContactData> before = app.contact().list();
