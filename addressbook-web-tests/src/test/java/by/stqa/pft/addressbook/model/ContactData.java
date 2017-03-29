@@ -1,37 +1,54 @@
 package by.stqa.pft.addressbook.model;
 
 public class ContactData {
-  private  int id;
-  private final String firstname;
-  private final String lastname;
-  private final String nickname;
-  private final String address;
-  private final String homephone;
-  private final String email;
+  private  int id = Integer.MAX_VALUE;;
+  private String firstname;
+  private String lastname;
+  private String nickname;
+  private String address;
+  private String homephone;
+  private String email;
   private String group;
 
-  public ContactData(String firstname, String lastname, String nickname, String address, String homephone, String email, String group) {
-    this.id = Integer.MAX_VALUE;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.nickname = nickname;
-    this.address = address;
-    this.homephone = homephone;
-    this.email = email;
-    this.group = group;
-  }
-
-  public ContactData(int id, String firstname, String lastname, String nickname, String address, String homephone, String email, String group) {
+  public ContactData withId(int id) {
     this.id = id;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.nickname = nickname;
-    this.address = address;
-    this.homephone = homephone;
-    this.email = email;
-    this.group = group;
+    return this;
   }
 
+  public ContactData withFirstname(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+  public ContactData withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withNickname(String nickname) {
+    this.nickname = nickname;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactData withHomephone(String homephone) {
+    this.homephone = homephone;
+    return this;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
+  }
 
   public int getId() {
     return id;

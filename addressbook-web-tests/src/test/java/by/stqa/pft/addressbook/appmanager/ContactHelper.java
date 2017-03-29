@@ -96,11 +96,7 @@ public class ContactHelper extends HelperBase {
       String view = cells.get(6).getText();
       String edit = cells.get(7).getText();
       String vcard = cells.get(8).getText();
-
-
-      ContactData contact = new ContactData(id, firstname, lastname, null, null,  null, null, null);
-      contacts.add(contact);
-
+      contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
     }
     return contacts;
   }
