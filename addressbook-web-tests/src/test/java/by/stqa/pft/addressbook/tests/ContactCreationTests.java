@@ -5,12 +5,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactCreationTests extends TestBase {
 
-  @Test
+  @Test (enabled = false)
   public void testContactCreation() {
     List<ContactData> before = app.getContactHelper().getContactList();
     ContactData contact = new ContactData("Bob", "Marley", null, "Jamaica", "911", "bobmarley@gmail.com", "test07");

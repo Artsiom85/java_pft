@@ -1,12 +1,10 @@
 package by.stqa.pft.addressbook.tests;
 
 import by.stqa.pft.addressbook.model.ContactData;
-import by.stqa.pft.addressbook.model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -14,7 +12,7 @@ import java.util.List;
  */
 public class ContactModificationTests extends TestBase {
 
-  @Test
+  @Test (enabled = false)
   public void testContactModification() {
     app.getNavigationHelper().returnToHomePage();
     if (!app.getContactHelper().isThereAContact()) {
