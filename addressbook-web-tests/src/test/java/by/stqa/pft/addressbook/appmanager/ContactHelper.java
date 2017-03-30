@@ -7,8 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Artsiom on 3/14/2017.
@@ -38,8 +39,10 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void selectContact(int index) {
-      wd.findElements(By.name("selected[]")).get(index).click();
+
+
+  public void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
   public void deleteSelectedContacts() {
@@ -51,18 +54,29 @@ public class ContactHelper extends HelperBase {
     fillContactForm(contact, true);
     returnToHomePage();
   }
-  public void delete(int index) {
-    selectContact(index);
+
+   public void delete(ContactData contact) {
+    selectContactById(contact.getId());
     deleteSelectedContacts();
     closeWindow();
     returnToHomePage();
   }
+  public void modify(ContactData contact) {
+    selectContactById(contact.getId());
+    initContactModification();
+    fillContactForm(contact, false);
+    submitContactModification();
+    returnToHomePage();
+  }
+
+
+
   public void returnToHomePage() {
     click(By.linkText("home"));
   }
 
-  public void initContactModification(int index) {
-    click(By.xpath("//div[1]/div[4]/form[2]/table/tbody/tr["+index+"]/td[8]/a/img"));
+  public void initContactModification() {
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
   }
 
   public void submitContactModification() {
@@ -82,8 +96,9 @@ public class ContactHelper extends HelperBase {
     wd.switchTo().alert().accept();
   }
 
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
+
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
     List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
       List<WebElement> cells = element.findElements(By.tagName("td"));
@@ -100,6 +115,7 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
 
 }
 
