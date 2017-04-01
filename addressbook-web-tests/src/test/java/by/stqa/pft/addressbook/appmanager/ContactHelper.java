@@ -118,7 +118,7 @@ public class ContactHelper extends HelperBase {
       String view = cells.get(6).getText();
       String edit = cells.get(7).getText();
       String vcard = cells.get(8).getText();
-      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).withAllPhones(allPhones));
+      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).withAllPhones(allPhones).withAddress(address));
     }
     return new Contacts(contactCache);
   }
