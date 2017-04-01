@@ -17,14 +17,14 @@ public class ContactDeletionTests extends TestBase {
       app.contact().create(new ContactData().withFirstname("Bob").withLastname("Marley").withAddress("Jamaica").withHomephone("911").withEmail("bobmarley@gmail.com").withGroup("test07"));
     }
   }
-  @Test (enabled = false)
+  @Test
   public void ContactDeletionTests() {
     app.goTo().homePage();
     Contacts before = app.contact().all();
     ContactData deletedContact = before.iterator().next();
     app.contact().delete(deletedContact);
+    assertThat(app.contact().count(), equalTo(before.size() - 1));
     Contacts after = app.contact().all();
-    assertEquals(after.size(), before.size() - 1);
     assertThat(after, equalTo(before.withOut(deletedContact)));
   }
 }
