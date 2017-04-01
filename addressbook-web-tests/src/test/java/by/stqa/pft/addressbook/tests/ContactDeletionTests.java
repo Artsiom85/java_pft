@@ -17,7 +17,7 @@ public class ContactDeletionTests extends TestBase {
       app.contact().create(new ContactData().withFirstname("Bob").withLastname("Marley").withAddress("Jamaica").withHomephone("911").withEmail("bobmarley@gmail.com").withGroup("test07"));
     }
   }
-  @Test (enabled = false)
+  @Test
   public void ContactDeletionTests() {
     app.goTo().homePage();
     Contacts before = app.contact().all();
