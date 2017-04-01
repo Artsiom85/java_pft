@@ -6,6 +6,17 @@ public class ContactData {
   private String lastname;
   private String nickname;
   private String address;
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  private String allPhones;
   private String homephone;
   private String mobilephone;
   private String workphone;

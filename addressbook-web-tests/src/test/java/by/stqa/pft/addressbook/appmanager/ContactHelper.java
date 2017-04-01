@@ -114,12 +114,11 @@ public class ContactHelper extends HelperBase {
       String firstname = cells.get(2).getText();
       String address = cells.get(3).getText();
       String email = cells.get(4).getText();
-       String[] phones = cells.get(5).getText().split("\n");
+      String allPhones = cells.get(5).getText();
       String view = cells.get(6).getText();
       String edit = cells.get(7).getText();
       String vcard = cells.get(8).getText();
-      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).withHomephone(phones[0]).withMobilephone(phones[1])
-              .withWorkphone(phones[2]));
+      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).withAllPhones(allPhones));
     }
     return new Contacts(contactCache);
   }
