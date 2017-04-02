@@ -38,8 +38,6 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-
-
   public void selectContactById(int id) {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
@@ -70,9 +68,6 @@ public class ContactHelper extends HelperBase {
     contactCache = null;
     returnToHomePage();
   }
-
-
-
   public void returnToHomePage() {
     click(By.linkText("home"));
   }
@@ -154,6 +149,15 @@ public class ContactHelper extends HelperBase {
     //   wd.findElement(By.xpath(String.format("//tr[.//input[@value='%s']/td[8]/a]", id))).click();
     // вариант с xpath с точным определеним локатора
     wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+  }
+
+  public String contactDetails() {
+    String details = wd.findElement(By.xpath("//*[@id='content']")).getText();
+    return details;
+  }
+
+  public void viewContactById(int id) {
+    wd.findElement(By.cssSelector("a[href*='view.php?id=" + id + "']")).click();
   }
 }
 
