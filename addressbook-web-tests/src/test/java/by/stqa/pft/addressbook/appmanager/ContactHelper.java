@@ -19,6 +19,28 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
+  public void fillContactFormForDetails(ContactData contactData) {
+    type(By.name("firstname"), contactData.getFirstname());
+    type(By.name("lastname"), contactData.getLastname());
+    attach(By.name("photo"), contactData.getPhoto());
+    type(By.name("nickname"), contactData.getNickname());
+    type(By.name("address"), contactData.getAddress());
+    type(By.name("mobile"), contactData.getMobilephone());
+    type(By.name("email"), contactData.getEmail1());
+    type(By.name("home"), contactData.getHomephone());
+    type(By.name("work"), contactData.getWorkphone());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
+    click(By.xpath("//div[@id='content']/form/input[21]"));
+}
+
+
+  public void createContactForDetails(ContactData contact) {
+    click(By.linkText("add new"));
+    fillContactFormForDetails(contact);
+    returnToHomePage();
+  }
+
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
@@ -109,7 +131,7 @@ public class ContactHelper extends HelperBase {
       String lastname = cells.get(1).getText();
       String firstname = cells.get(2).getText();
       String address = cells.get(3).getText();
-      String email = cells.get(4).getText();
+      String allEmail = cells.get(4).getText();
       String allPhones = cells.get(5).getText();
       String view = cells.get(6).getText();
       String edit = cells.get(7).getText();

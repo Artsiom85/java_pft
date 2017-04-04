@@ -55,7 +55,7 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation (ContactData contact) {
     Contacts before = app.contact().all();
     //File photo = new File ("src/test/resources/stru.png");
-    app.contact().create(contact);
+    app.contact().createContactForDetails(contact);
     assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after = app.contact().all();
     assertThat(after, equalTo(

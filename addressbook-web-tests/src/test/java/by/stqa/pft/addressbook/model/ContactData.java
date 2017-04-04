@@ -21,6 +21,8 @@ public class ContactData {
   @Expose
   private String allPhones;
   @Expose
+  private String allEmails;
+  @Expose
   private String homephone;
   @Expose
   private String mobilephone;
@@ -140,14 +142,13 @@ public class ContactData {
   public String getEmail1() {
     return email1;
   }
-
   public String getEmail2() {
     return email2;
   }
-
   public String getEmail3() {
     return email3;
   }
+
   public String getAllPhones() {
     return allPhones;
   }
@@ -157,9 +158,16 @@ public class ContactData {
     return this;
   }
 
+  public String getAllEmails() {
+    return allEmails;
+  }
 
-
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
   public String getGroup() {return group; }
+
   @Override
   public String toString() {
     return "ContactData{" +
