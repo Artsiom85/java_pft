@@ -4,6 +4,7 @@ import by.stqa.pft.addressbook.model.GroupData;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.thoughtworks.xstream.XStream;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -22,6 +23,9 @@ public class GroupDatagenerator {
   @Parameter(names = "-f", description = "Target file")
   public String file;
 
+  @Parameter(names = "-d", description = "Data format")
+  public String format;
+
   public static void main(String[] args) throws IOException {
     GroupDatagenerator generator = new GroupDatagenerator();
     JCommander jCommander = new JCommander(generator);
@@ -36,10 +40,15 @@ public class GroupDatagenerator {
 
   private void run() throws IOException {
     List<GroupData> groups = generateGroups(count);
-    save(groups, new File(file));
+    if (format.equals("csv")) {
+      saveAsCsv(groups, new File(file));
+    } else if (format.equals("xml")) {
+      saveAsXml(groups, new File(file));
+    } else if (format.equals("json")) {
+      System.out.println("Unrecognized format" + format);
+    }
   }
-
-  private void save(List<GroupData> groups, File file) throws IOException {
+  private void saveAsCsv(List<GroupData> groups, File file) throws IOException {
     System.out.println(new File(".").getAbsolutePath());
     Writer writer = new FileWriter(file);
     for(GroupData group : groups) {
@@ -48,6 +57,14 @@ public class GroupDatagenerator {
     writer.close();
   }
 
+  private void saveAsXml(List<GroupData> groups, File file) throws IOException {
+    XStream xStream = new XStream();
+    xStream.processAnnotations(GroupData.class);
+    String xml = xStream.toXML(groups);
+    Writer writer = new FileWriter(file);
+    writer.write(xml);
+    writer.close();
+  }
   private List<GroupData> generateGroups(int count) {
     List <GroupData> groups = new ArrayList<GroupData>();
     for(int i = 0; i < count; i++ ) {
