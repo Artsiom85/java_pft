@@ -1,10 +1,12 @@
 package by.stqa.pft.addressbook.generators;
 
 import by.stqa.pft.addressbook.model.ContactData;
-import by.stqa.pft.addressbook.model.GroupData;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.thoughtworks.xstream.XStream;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -24,7 +26,7 @@ public class ContactDatagenerator {
   @Parameter(names = "-f", description = "Target file")
   public String file;
 
-  @Parameter(names = "-d",description = "Data format")
+  @Parameter(names = "-d", description = "Data format")
   public String format;
 
   public static void main(String[] args) throws IOException {
@@ -41,9 +43,18 @@ public class ContactDatagenerator {
 
   private void run() throws IOException {
     List<ContactData> contacts = generateContacts(count);
-    save(contacts, new File(file));
+    if (format.equals("csv")) {
+      saveAsCsv(contacts, new File(file));
+    } else if (format.equals("xml")) {
+      saveAsXml(contacts, new File(file));
+    } else if (format.equals("json")) {
+      saveAsJson(contacts, new File(file));
+    } else {
+  System.out.println("Unrecognized format" + format);
+    }
   }
-  private void save(List<ContactData> contacts, File file) throws IOException {
+
+  private void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
     System.out.println(new File(".").getAbsolutePath());
     Writer writer = new FileWriter(file);
     for(ContactData contact : contacts) {
@@ -53,13 +64,30 @@ public class ContactDatagenerator {
     writer.close();
   }
 
+  private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
+    Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+    String json = gson.toJson(contacts);
+    Writer writer = new FileWriter(file);
+    writer.write(json);
+    writer.close();
+  }
+
+  private void saveAsXml(List<ContactData> contacts, File file) throws IOException {
+    XStream xStream = new XStream();
+    xStream.processAnnotations(ContactData.class);
+    String xml = xStream.toXML(contacts);
+    Writer writer = new FileWriter(file);
+    writer.write(xml);
+    writer.close();
+  }
+
   private List<ContactData> generateContacts(int count) {
     List<ContactData> contacts = new ArrayList<ContactData>();
     for (int i = 0; i < count; i++) {
       contacts.add(new ContactData()
-              .withLastname(String.format("LastName %s", i))
-              .withFirstname(String.format("FirstName %s", i))
-              .withAddress(String.format("Belarus=>UsA %s", i))
+              .withFirstname(String.format("Tadeush %s", i))
+              .withLastname(String.format("Kastyushko %s", i))
+              .withAddress(String.format("from_Belarus_to_UsA %s", i))
               .withHomephone(String.format("(720)234-7865 %s", i))
               .withMobilephone(String.format("+16507778888 %s", i))
               .withWorkphone(String.format("911 %s", i))

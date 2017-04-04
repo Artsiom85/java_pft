@@ -1,0 +1,35 @@
+<list>
+  <contact>
+    <firstname>FirstName 0</firstname>
+    <lastname>LastName 0</lastname>
+    <address>from_Belarus_to_UsA 0</address>
+    <homephone>(720)234-7865 0</homephone>
+    <mobilephone>+16507778888 0</mobilephone>
+    <workphone>911 0</workphone>
+    <email1>email1@tut.com 0</email1>
+    <email2>email2@gmail.com 0</email2>
+    <email3>email3@yahoo.com 0</email3>
+  </contact>
+  <contact>
+    <firstname>FirstName 1</firstname>
+    <lastname>LastName 1</lastname>
+    <address>from_Belarus_to_UsA 1</address>
+    <homephone>(720)234-7865 1</homephone>
+    <mobilephone>+16507778888 1</mobilephone>
+    <workphone>911 1</workphone>
+    <email1>email1@tut.com 1</email1>
+    <email2>email2@gmail.com 1</email2>
+    <email3>email3@yahoo.com 1</email3>
+  </contact>
+  <contact>
+    <firstname>FirstName 2</firstname>
+    <lastname>LastName 2</lastname>
+    <address>from_Belarus_to_UsA 2</address>
+    <homephone>(720)234-7865 2</homephone>
+    <mobilephone>+16507778888 2</mobilephone>
+    <workphone>911 2</workphone>
+    <email1>email1@tut.com 2</email1>
+    <email2>email2@gmail.com 2</email2>
+    <email3>email3@yahoo.com 2</email3>
+  </contact>
+</list>

@@ -1,0 +1,35 @@
+[
+  {
+    "firstname": "Tadeush 0",
+    "lastname": "Kastyushko 0",
+    "address": "from_Belarus_to_UsA 0",
+    "homephone": "(720)234-7865 0",
+    "mobilephone": "+16507778888 0",
+    "workphone": "911 0",
+    "email1": "email1@tut.com 0",
+    "email2": "email2@gmail.com 0",
+    "email3": "email3@yahoo.com 0"
+  },
+  {
+    "firstname": "Tadeush 1",
+    "lastname": "Kastyushko 1",
+    "address": "from_Belarus_to_UsA 1",
+    "homephone": "(720)234-7865 1",
+    "mobilephone": "+16507778888 1",
+    "workphone": "911 1",
+    "email1": "email1@tut.com 1",
+    "email2": "email2@gmail.com 1",
+    "email3": "email3@yahoo.com 1"
+  },
+  {
+    "firstname": "Tadeush 2",
+    "lastname": "Kastyushko 2",
+    "address": "from_Belarus_to_UsA 2",
+    "homephone": "(720)234-7865 2",
+    "mobilephone": "+16507778888 2",
+    "workphone": "911 2",
+    "email1": "email1@tut.com 2",
+    "email2": "email2@gmail.com 2",
+    "email3": "email3@yahoo.com 2"
+  }
+]
