@@ -4,6 +4,12 @@
     <test name="Contacts">
         <classes>
             <class name="by.stqa.pft.addressbook.tests.ContactCreationTests"/>
+            <class name="by.stqa.pft.addressbook.tests.ContactModificationTests"/>
+            <class name="by.stqa.pft.addressbook.tests.ContactDeletionTests"/>
+            <class name="by.stqa.pft.addressbook.tests.ContactAddressTests"/>
+            <class name="by.stqa.pft.addressbook.tests.ContactEmailTests"/>
+            <class name="by.stqa.pft.addressbook.tests.ContactPhoneTests"/>
+            <class name="by.stqa.pft.addressbook.tests.ContactDetailsInfoTests"/>
         </classes>
     </test>
 </suite>
