@@ -49,7 +49,7 @@ public class ContactDetailsInfoTests extends TestBase {
     return Arrays.asList(mergeNames(contact), mergeOtherInformation(contact)).stream().collect(Collectors.joining("\n"));
   }
 
-  private static String clean(String contactViewInfo) {
+  public static String clean(String contactViewInfo) {
     return contactViewInfo.replaceAll("[HMWP]: ", "").replaceAll("Modify", "")
             .replaceAll("Print", "").replaceAll("\n\n\n\n", "\n")
             .replaceAll("\n\n", "\n");

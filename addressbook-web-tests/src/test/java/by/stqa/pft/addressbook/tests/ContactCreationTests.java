@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -54,13 +55,52 @@ public class ContactCreationTests extends TestBase {
   @Test (dataProvider = "validContactsFromJson")
   public void testContactCreation (ContactData contact) {
     app.goTo().homePage();
-    Contacts before = app.contact().all();
+    contact = app.contact().all().iterator().next();
+    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
     //File photo = new File ("src/test/resources/stru.png");
     app.contact().createContactForDetails(contact);
-    assertThat(app.contact().count(), equalTo(before.size() + 1));
+    app.contact().viewContactById(contact.getId());
+    String contactViewInfo = app.contact().contactDetails();
+    assertThat(contact.getAddress(), equalTo(contactInfoFromEditForm.getAddress()));
+    assertThat(clean(contactViewInfo), equalTo(mergeAll(contactInfoFromEditForm)));
+  }
+
+  @Test(dataProvider = "validContactsFromXml", enabled = false)
+  public void testAddNewContact(ContactData contact) {
+    //File photo = new File ("src/test/resources/stru.png");
+    app.goTo().homePage();
+    Contacts before = app.contact().all();
+    app.contact().createContactForDetails(contact);
+    //хэширование - делается быстрая проверка кол-во контактов после создания новой группы
+    assertThat(app.contact().count(), equalTo(before.size()+1));
     Contacts after = app.contact().all();
+    //вычисляется максимальный идентификатор
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+  }
+
+
+  private String mergeOtherInformation(ContactData contact) {
+    return Arrays.asList(contact.getAddress(), contact.getHomephone(), contact.getMobilephone(), contact.getWorkphone(),
+            contact.getEmail1(), contact.getEmail2(), contact.getEmail3()).stream().filter(s -> !(s == null || s.equals("")))
+            .map(ContactDetailsInfoTests::clean).collect(Collectors.joining("\n"));
+  }
+
+  private String mergeNames(ContactData contact) {
+    return Arrays.asList(contact.getFirstname().replaceAll("\n", ""), contact.getLastname())
+            .stream().filter(s -> !(s == null || s.equals("")))
+            .map(ContactDetailsInfoTests::clean)
+            .collect(Collectors.joining(" "));
+  }
+
+  private String mergeAll (ContactData contact) {
+    return Arrays.asList(mergeNames(contact), mergeOtherInformation(contact)).stream().collect(Collectors.joining("\n"));
+  }
+
+  private static String clean(String contactViewInfo) {
+    return contactViewInfo.replaceAll("[HMWP]: ", "").replaceAll("Modify", "")
+            .replaceAll("Print", "").replaceAll("\n\n\n\n", "\n")
+            .replaceAll("\n\n", "\n");
   }
 
 
