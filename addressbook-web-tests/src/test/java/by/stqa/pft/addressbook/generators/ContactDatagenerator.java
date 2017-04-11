@@ -54,31 +54,33 @@ public class ContactDatagenerator {
     }
   }
 
+  //необходимо указать в "Edit Configurations" в Program arguments: -f src/test/resources/contacts.json -c 1 -d json
+  //а в пути указаить путь к проекту C:\Devel\java_pft\addressbook-web-tests
+
   private void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
     System.out.println(new File(".").getAbsolutePath());
-    Writer writer = new FileWriter(file);
-    for(ContactData contact : contacts) {
-      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s\n", contact.getLastname(), contact.getFirstname(), contact.getAddress(),
-              contact.getHomephone(),contact.getMobilephone(),contact.getWorkphone(),contact.getEmail(),contact.getEmail2(),contact.getEmail3()));
+    try (Writer writer = new FileWriter(file)) {
+      for (ContactData contact : contacts) {
+        writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s\n", contact.getLastname(), contact.getFirstname(), contact.getAddress(),
+                contact.getHomephone(), contact.getMobilephone(), contact.getWorkphone(), contact.getEmail(), contact.getEmail2(), contact.getEmail3()));
+      }
     }
-    writer.close();
   }
-
   private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
     String json = gson.toJson(contacts);
-    Writer writer = new FileWriter(file);
-    writer.write(json);
-    writer.close();
+    try (Writer writer = new FileWriter(file)) {
+      writer.write(json);
+    }
   }
 
   private void saveAsXml(List<ContactData> contacts, File file) throws IOException {
     XStream xStream = new XStream();
     xStream.processAnnotations(ContactData.class);
     String xml = xStream.toXML(contacts);
-    Writer writer = new FileWriter(file);
-    writer.write(xml);
-    writer.close();
+    try (Writer writer = new FileWriter(file)) {
+      writer.write(xml);
+    }
   }
 
   private List<ContactData> generateContacts(int count) {

@@ -1,35 +1,35 @@
 [
   {
-    "firstname": "Tadeush 0",
-    "lastname": "Kastyushko 0",
-    "address": "from_Belarus_to_UsA 0",
+    "firstname": "Vladimir 0",
+    "lastname": "Mulyavin 0",
+    "address": "USSR 0",
     "homephone": "(720)234-7865 0",
     "mobilephone": "+16507778888 0",
     "workphone": "911 0",
-    "email": "email1@tut.com 0",
-    "email2": "email2@gmail.com 0",
-    "email3": "email3@yahoo.com 0"
+    "email": "vologda1@tut.com 0",
+    "email2": "vologda2@gmail.com 0",
+    "email3": "vologda3@yahoo.com 0"
   },
   {
-    "firstname": "Tadeush 1",
-    "lastname": "Kastyushko 1",
-    "address": "from_Belarus_to_UsA 1",
+    "firstname": "Vladimir 1",
+    "lastname": "Mulyavin 1",
+    "address": "USSR 1",
     "homephone": "(720)234-7865 1",
     "mobilephone": "+16507778888 1",
     "workphone": "911 1",
-    "email": "email1@tut.com 1",
-    "email2": "email2@gmail.com 1",
-    "email3": "email3@yahoo.com 1"
+    "email": "vologda1@tut.com 1",
+    "email2": "vologda2@gmail.com 1",
+    "email3": "vologda3@yahoo.com 1"
   },
   {
-    "firstname": "Tadeush 2",
-    "lastname": "Kastyushko 2",
-    "address": "from_Belarus_to_UsA 2",
+    "firstname": "Vladimir 2",
+    "lastname": "Mulyavin 2",
+    "address": "USSR 2",
     "homephone": "(720)234-7865 2",
     "mobilephone": "+16507778888 2",
     "workphone": "911 2",
-    "email": "email1@tut.com 2",
-    "email2": "email2@gmail.com 2",
-    "email3": "email3@yahoo.com 2"
+    "email": "vologda1@tut.com 2",
+    "email2": "vologda2@gmail.com 2",
+    "email3": "vologda3@yahoo.com 2"
   }
 ]

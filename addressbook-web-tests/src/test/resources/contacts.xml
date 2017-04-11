@@ -1,8 +1,8 @@
 <list>
   <contact>
-    <firstname>FirstName 0</firstname>
-    <lastname>LastName 0</lastname>
-    <address>from_Belarus_to_UsA 0</address>
+    <firstname>Vladimir 0</firstname>
+    <lastname>Mulyavin 0</lastname>
+    <address>USSR 0</address>
     <homephone>(720)234-7865 0</homephone>
     <mobilephone>+16507778888 0</mobilephone>
     <workphone>911 0</workphone>
@@ -11,9 +11,9 @@
     <email3>email3@yahoo.com 0</email3>
   </contact>
   <contact>
-    <firstname>FirstName 1</firstname>
-    <lastname>LastName 1</lastname>
-    <address>from_Belarus_to_UsA 1</address>
+    <firstname>Vladimir 1</firstname>
+    <lastname>Mulyavin 1</lastname>
+    <address>USSR 1</address>
     <homephone>(720)234-7865 1</homephone>
     <mobilephone>+16507778888 1</mobilephone>
     <workphone>911 1</workphone>
@@ -22,9 +22,9 @@
     <email3>email3@yahoo.com 1</email3>
   </contact>
   <contact>
-    <firstname>FirstName 2</firstname>
-    <lastname>LastName 2</lastname>
-    <address>from_Belarus_to_UsA 2</address>
+    <firstname>Vladimir 2</firstname>
+    <lastname>Mulyavin 2</lastname>
+    <address>USSR 2</address>
     <homephone>(720)234-7865 2</homephone>
     <mobilephone>+16507778888 2</mobilephone>
     <workphone>911 2</workphone>

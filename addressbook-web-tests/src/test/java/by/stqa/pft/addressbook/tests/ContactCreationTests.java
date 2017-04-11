@@ -65,20 +65,17 @@ public class ContactCreationTests extends TestBase {
     assertThat(clean(contactViewInfo), equalTo(mergeAll(contactInfoFromEditForm)));
   }
 
-  @Test(dataProvider = "validContactsFromXml", enabled = false)
-  public void testAddNewContact(ContactData contact) {
-    //File photo = new File ("src/test/resources/stru.png");
-    app.goTo().homePage();
-    Contacts before = app.contact().all();
-    app.contact().createContactForDetails(contact);
-    //хэширование - делается быстрая проверка кол-во контактов после создания новой группы
-    assertThat(app.contact().count(), equalTo(before.size()+1));
-    Contacts after = app.contact().all();
-    //вычисляется максимальный идентификатор
-    assertThat(after, equalTo(
-            before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+  @Test (dataProvider = "validContactsFromXml", enabled = false)
+  public void testAddNewContact (ContactData contact) {
+    app.contact().returnToHomePage();
+    ContactData innerContact = app.contact().all().iterator().next();
+    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(innerContact);
+    app.contact().createContactForDetails(innerContact);
+    app.contact().viewContactById(innerContact.getId());
+    String contactViewInfo = app.contact().contactDetails();
+    assertThat(innerContact.getAddress(), equalTo(contactInfoFromEditForm.getAddress()));
+    assertThat(clean(contactViewInfo), equalTo(mergeAll(contactInfoFromEditForm)));
   }
-
 
   private String mergeOtherInformation(ContactData contact) {
     return Arrays.asList(contact.getAddress(), contact.getHomephone(), contact.getMobilephone(), contact.getWorkphone(),
