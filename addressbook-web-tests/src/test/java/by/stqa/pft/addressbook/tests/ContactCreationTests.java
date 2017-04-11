@@ -55,13 +55,13 @@ public class ContactCreationTests extends TestBase {
   @Test (dataProvider = "validContactsFromJson")
   public void testContactCreation (ContactData contact) {
     app.goTo().homePage();
-    contact = app.contact().all().iterator().next();
-    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
+    ContactData innerContact = app.contact().all().iterator().next();
+    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(innerContact);
     //File photo = new File ("src/test/resources/stru.png");
-    app.contact().createContactForDetails(contact);
-    app.contact().viewContactById(contact.getId());
+    app.contact().createContactForDetails(innerContact);
+    app.contact().viewContactById(innerContact.getId());
     String contactViewInfo = app.contact().contactDetails();
-    assertThat(contact.getAddress(), equalTo(contactInfoFromEditForm.getAddress()));
+    assertThat(innerContact.getAddress(), equalTo(contactInfoFromEditForm.getAddress()));
     assertThat(clean(contactViewInfo), equalTo(mergeAll(contactInfoFromEditForm)));
   }
 
