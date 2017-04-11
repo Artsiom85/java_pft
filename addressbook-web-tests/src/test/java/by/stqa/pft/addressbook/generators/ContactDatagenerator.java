@@ -45,7 +45,7 @@ public class ContactDatagenerator {
     List<ContactData> contacts = generateContacts(count);
     if (format.equals("csv")) {
       saveAsCsv(contacts, new File(file));
-    } else if (format.equals("xml")) {
+    } else    if (format.equals("xml")) {
       saveAsXml(contacts, new File(file));
     } else if (format.equals("json")) {
       saveAsJson(contacts, new File(file));
@@ -85,13 +85,13 @@ public class ContactDatagenerator {
     List<ContactData> contacts = new ArrayList<ContactData>();
     for (int i = 0; i < count; i++) {
       contacts.add(new ContactData()
-              .withFirstname(String.format("Tadeush %s", i))
-              .withLastname(String.format("Kastyushko %s", i))
-              .withAddress(String.format("from_Belarus_to_UsA %s", i))
+              .withFirstname(String.format("Vladimir %s", i))
+              .withLastname(String.format("Mulyavin %s", i))
+              .withAddress(String.format("USSR %s", i))
               .withHomephone(String.format("(720)234-7865 %s", i))
               .withMobilephone(String.format("+16507778888 %s", i))
               .withWorkphone(String.format("911 %s", i))
-              .withEmail1(String.format("email1@tut.com %s", i))
+              .withEmail(String.format("email1@tut.com %s", i))
               .withEmail2(String.format("email2@gmail.com %s", i))
               .withEmail3(String.format("email3@yahoo.com %s", i)));
     }

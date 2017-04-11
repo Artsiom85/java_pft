@@ -19,7 +19,7 @@ public class ContactDetailsInfoTests extends TestBase {
   public void ensurePreconditions() {
     if (app.contact().all().size() == 0) {
        app.contact().create(new ContactData().withFirstname("Bob").withLastname("Marley").withAddress("Jamaica").withHomephone("911").withMobilephone("+74563912")
-              .withWorkphone("(123)6758394").withEmail1("bobmarley@gmail.com").withEmail2("Bob@mail.ru").withEmail3("Bob@tut.by").withGroup("[none]"));
+              .withWorkphone("(123)6758394").withEmail("bobmarley@gmail.com").withEmail2("Bob@mail.ru").withEmail3("Bob@tut.by").withGroup("[none]"));
     }
   }
   @Test

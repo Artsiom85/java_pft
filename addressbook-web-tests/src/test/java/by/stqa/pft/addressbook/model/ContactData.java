@@ -119,7 +119,7 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withEmail1(String email) {
+  public ContactData withEmail(String email) {
     this.email = email;
     return this;
   }
@@ -165,6 +165,7 @@ public class ContactData {
   public String getHomephone() {
     return homephone;
   }
+
   public String getMobilephone() {
     return mobilephone;
   }
@@ -173,9 +174,11 @@ public class ContactData {
   public String getEmail() {
     return email;
   }
+
   public String getEmail2() {
     return email2;
   }
+
   public String getEmail3() {
     return email3;
   }
@@ -197,7 +200,10 @@ public class ContactData {
     this.allEmails = allEmails;
     return this;
   }
-  public String getGroup() {return group; }
+
+  public String getGroup() {
+    return group;
+  }
 
   @Override
   public String toString() {

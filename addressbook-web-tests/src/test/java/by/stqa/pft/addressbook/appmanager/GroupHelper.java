@@ -51,13 +51,14 @@ public class GroupHelper extends HelperBase {
     click(By.name("update"));
   }
 
-   public void create(GroupData group) {
+  public void create(GroupData group) {
     initGroupCreation();
     fillGroupForm(group);
     submitGroupCreation();
     groupCache = null;
     returnToGroupPage();
   }
+
   public void modify(GroupData group) {
     selectGroupById(group.getId());
     initGroupModification();
@@ -84,8 +85,6 @@ public class GroupHelper extends HelperBase {
 
   private Groups groupCache = null;
 
-
-
   public Groups all() {
     if (groupCache != null) {
       return new Groups(groupCache);
@@ -100,6 +99,4 @@ public class GroupHelper extends HelperBase {
     }
     return new Groups(groupCache);
   }
-
-
 }

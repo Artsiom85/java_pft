@@ -19,7 +19,6 @@ public class NavigationHelper extends HelperBase {
       return;
     }
     click(By.linkText("groups"));
-
   }
 
   public void homePage() {

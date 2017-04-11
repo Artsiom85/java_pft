@@ -32,7 +32,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
     click(By.xpath("//div[@id='content']/form/input[21]"));
-}
+  }
 
 
   public void createContactForDetails(ContactData contact) {
@@ -77,13 +77,14 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
-   public void delete(ContactData contact) {
+  public void delete(ContactData contact) {
     selectContactById(contact.getId());
     deleteSelectedContacts();
     closeWindow();
     contactCache = null;
     returnToHomePage();
   }
+
   public void modify(ContactData contact) {
     selectContactById(contact.getId());
     initContactModification();
@@ -92,6 +93,7 @@ public class ContactHelper extends HelperBase {
     contactCache = null;
     returnToHomePage();
   }
+
   public void returnToHomePage() {
     click(By.linkText("home"));
   }
@@ -112,13 +114,11 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-
   public void closeWindow() {
     wd.switchTo().alert().accept();
   }
 
   private Contacts contactCache = null;
-
 
   public Contacts all() {
     if (contactCache != null) {
@@ -154,7 +154,7 @@ public class ContactHelper extends HelperBase {
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
             .withHomephone(home).withMobilephone(mobile).withWorkphone(work).withAddress(address)
-            .withEmail1(email1).withEmail2(email2).withEmail3(email3);
+            .withEmail(email1).withEmail2(email2).withEmail3(email3);
   }
 
   private void initContactModificationById(int id) {

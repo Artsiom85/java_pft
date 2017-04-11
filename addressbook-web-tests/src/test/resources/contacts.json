@@ -6,7 +6,7 @@
     "homephone": "(720)234-7865 0",
     "mobilephone": "+16507778888 0",
     "workphone": "911 0",
-    "email1": "email1@tut.com 0",
+    "email": "email1@tut.com 0",
     "email2": "email2@gmail.com 0",
     "email3": "email3@yahoo.com 0"
   },
@@ -17,7 +17,7 @@
     "homephone": "(720)234-7865 1",
     "mobilephone": "+16507778888 1",
     "workphone": "911 1",
-    "email1": "email1@tut.com 1",
+    "email": "email1@tut.com 1",
     "email2": "email2@gmail.com 1",
     "email3": "email3@yahoo.com 1"
   },
@@ -28,7 +28,7 @@
     "homephone": "(720)234-7865 2",
     "mobilephone": "+16507778888 2",
     "workphone": "911 2",
-    "email1": "email1@tut.com 2",
+    "email": "email1@tut.com 2",
     "email2": "email2@gmail.com 2",
     "email3": "email3@yahoo.com 2"
   }

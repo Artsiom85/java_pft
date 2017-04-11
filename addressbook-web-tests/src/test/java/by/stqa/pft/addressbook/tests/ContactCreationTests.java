@@ -116,7 +116,7 @@ public class ContactCreationTests extends TestBase {
   @Test (enabled = false)
   public void testBadContactCreation() {
     Contacts before = app.contact().all();
-    ContactData contact = new ContactData().withFirstname("Bob'").withLastname("Marley").withAddress("Jamaica").withHomephone("911").withEmail1("bobmarley@gmail.com").withGroup("[none]");
+    ContactData contact = new ContactData().withFirstname("Bob'").withLastname("Marley").withAddress("Jamaica").withHomephone("911").withEmail("bobmarley@gmail.com").withGroup("[none]");
     app.contact().create(contact);
     assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.contact().all();
