@@ -6,14 +6,16 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
-//@XStreamAlias("contact")
+@XStreamAlias("contact")
 @Entity
 @Table (name = "addressbook")
 
 public class ContactData {
 
-  //@XStreamOmitField
+  @XStreamOmitField
   @Id
   @Column(name = "id")
   private  int id = Integer.MAX_VALUE;;
@@ -49,9 +51,9 @@ public class ContactData {
   @Type(type ="text")
   private String workphone;
 
-  @Column(name = "email1")
+  @Column(name = "email")
   @Type(type ="text")
-  private String email1;
+  private String email;
 
   @Column(name = "email2")
   @Type(type ="text")
@@ -118,7 +120,7 @@ public class ContactData {
   }
 
   public ContactData withEmail1(String email) {
-    this.email1 = email;
+    this.email = email;
     return this;
   }
   public ContactData withEmail2(String email) {
@@ -168,8 +170,8 @@ public class ContactData {
   }
   public String getWorkphone() { return workphone; }
 
-  public String getEmail1() {
-    return email1;
+  public String getEmail() {
+    return email;
   }
   public String getEmail2() {
     return email2;
@@ -207,7 +209,7 @@ public class ContactData {
             ", homephone='" + homephone + '\'' +
             ", mobilephone='" + mobilephone + '\'' +
             ", workphone='" + workphone + '\'' +
-            ", email1='" + email1 + '\'' +
+            ", email='" + email + '\'' +
             ", email2='" + email2 + '\'' +
             ", email3='" + email3 + '\'' +
             '}';
@@ -227,7 +229,7 @@ public class ContactData {
     if (homephone != null ? !homephone.equals(that.homephone) : that.homephone != null) return false;
     if (mobilephone != null ? !mobilephone.equals(that.mobilephone) : that.mobilephone != null) return false;
     if (workphone != null ? !workphone.equals(that.workphone) : that.workphone != null) return false;
-    if (email1 != null ? !email1.equals(that.email1) : that.email1 != null) return false;
+    if (email != null ? !email.equals(that.email) : that.email != null) return false;
     if (email2 != null ? !email2.equals(that.email2) : that.email2 != null) return false;
     return email3 != null ? email3.equals(that.email3) : that.email3 == null;
   }
@@ -241,7 +243,7 @@ public class ContactData {
     result = 31 * result + (homephone != null ? homephone.hashCode() : 0);
     result = 31 * result + (mobilephone != null ? mobilephone.hashCode() : 0);
     result = 31 * result + (workphone != null ? workphone.hashCode() : 0);
-    result = 31 * result + (email1 != null ? email1.hashCode() : 0);
+    result = 31 * result + (email != null ? email.hashCode() : 0);
     result = 31 * result + (email2 != null ? email2.hashCode() : 0);
     result = 31 * result + (email3 != null ? email3.hashCode() : 0);
     return result;

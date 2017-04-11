@@ -59,7 +59,7 @@ public class ContactDatagenerator {
     Writer writer = new FileWriter(file);
     for(ContactData contact : contacts) {
       writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s\n", contact.getLastname(), contact.getFirstname(), contact.getAddress(),
-              contact.getHomephone(),contact.getMobilephone(),contact.getWorkphone(),contact.getEmail1(),contact.getEmail2(),contact.getEmail3()));
+              contact.getHomephone(),contact.getMobilephone(),contact.getWorkphone(),contact.getEmail(),contact.getEmail2(),contact.getEmail3()));
     }
     writer.close();
   }

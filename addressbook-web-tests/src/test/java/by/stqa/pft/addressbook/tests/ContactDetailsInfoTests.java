@@ -34,7 +34,7 @@ public class ContactDetailsInfoTests extends TestBase {
   }
   private String mergeOtherInformation(ContactData contact) {
     return Arrays.asList(contact.getAddress(), contact.getHomephone(), contact.getMobilephone(), contact.getWorkphone(),
-            contact.getEmail1(), contact.getEmail2(), contact.getEmail3()).stream().filter(s -> !(s == null || s.equals("")))
+            contact.getEmail(), contact.getEmail2(), contact.getEmail3()).stream().filter(s -> !(s == null || s.equals("")))
             .map(ContactDetailsInfoTests::clean).collect(Collectors.joining("\n"));
   }
 
