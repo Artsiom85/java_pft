@@ -184,7 +184,17 @@ public class ContactHelper extends HelperBase {
   public void viewContactById(int id) {
     wd.findElement(By.cssSelector("a[href*='view.php?id=" + id + "']")).click();
   }
+
+  public void addContactToGroup(int id) {
+    wd.findElement(By.cssSelector("select[name='to_group']>option[value='" + id + "']")).click();
+    click(By.cssSelector("input[name='add']"));
+  }
+
+  public void removeContactFromGroup(int id) {
+    wd.findElement(By.cssSelector("select[name='group']>option[value='" + id + "']")).click();
+  }
 }
+
 
 
 
