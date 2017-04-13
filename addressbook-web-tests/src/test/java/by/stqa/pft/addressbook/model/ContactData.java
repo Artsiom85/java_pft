@@ -82,6 +82,13 @@ public class ContactData {
   @Type(type ="text")
   private String photo;
 
+
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups",
+          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
+
+
   public File getPhoto() {
     return new File (photo);
   }
@@ -181,6 +188,7 @@ public class ContactData {
   public String getMobilephone() {
     return mobilephone;
   }
+
   public String getWorkphone() { return workphone; }
 
   public String getEmail() {
@@ -213,9 +221,18 @@ public class ContactData {
     return this;
   }
 
-  public String getGroup() {
-    return group;
+  public void setGroups(Set<GroupData> groups) {
+    this.groups = groups;
   }
+
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
+
 
   @Override
   public String toString() {
