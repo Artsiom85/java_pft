@@ -1,4 +1,4 @@
-package by.stqa.pft.rest;
+package by.stqa.pft.rest.by.stqa.pft.rest.model;
 
 /**
  * Created by Artsiom on 4/19/2017.
@@ -8,7 +8,7 @@ public class Issue {
   private int id;
   private String subject;
   private String description;
-
+  private String status;
 
   public int getId() {
     return id;
@@ -16,6 +16,15 @@ public class Issue {
 
   public Issue withId(int id) {
     this.id = id;
+    return this;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public Issue withStatus(String status) {
+    this.status = status;
     return this;
   }
 
@@ -36,7 +45,6 @@ public class Issue {
     this.description = description;
     return this;
   }
-
 
   @Override
   public boolean equals(Object o) {
