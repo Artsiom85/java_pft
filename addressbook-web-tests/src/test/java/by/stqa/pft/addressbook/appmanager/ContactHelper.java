@@ -193,6 +193,11 @@ public class ContactHelper extends HelperBase {
   public void removeContactFromGroup(int id) {
     wd.findElement(By.cssSelector("select[name='group']>option[value='" + id + "']")).click();
   }
+
+  public void waitAfterClickOk() {
+    click(By.linkText("home")); //задержка после удаления контакта для Хрома
+  }
+
 }
 
 
