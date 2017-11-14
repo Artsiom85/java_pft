@@ -44,23 +44,12 @@ public class AddTvToCart {
     wd.findElement(By.id("twotabsearchtextbox")).clear();
     wd.findElement(By.id("twotabsearchtextbox")).sendKeys("smart tv");
     wd.findElement(By.cssSelector("input.nav-input")).click();
-    if (!wd.findElement(By.xpath("//select[@id='sort']//option[3]")).isSelected()) {
-      wd.findElement(By.xpath("//select[@id='sort']//option[3]")).click();
-    }
-    wd.findElement(By.cssSelector("img.s-access-image"));
-    //wd.findElement(By.linkText("VIZIO 24-Inch 720p LED TV D24HN-E1 (2017)")).click();
-    wd.findElement(By.id("a-autoid-0-announce")).click();
-    wd.navigate().back();
-    //wd.navigate().back();
-    //wd.findElement(By.linkText("Sceptre 24-Inch 720p LED TV E246BV-SR (2017)")).click();
-    wd.findElement(By.xpath("//li[@id='result_4']/div/div/div/div[1]/div/div/a/img"));
+    wd.findElement(By.xpath("//li[@id='result_3']/div/div[2]/div/div[1]/div/div/a/img")).click();
     wd.findElement(By.id("add-to-cart-button")).click();
-    wd.findElement(By.id("nav-cart-count")).click();
-    wd.findElement(By.id("a-autoid-2-announce")).click();
-    wd.findElement(By.xpath("//form[@id='activeCartViewForm']/div[2]/div[1]/div[4]/div")).click();
-    wd.findElement(By.name("submit.delete.C1N0U57W8OTJNG")).click();
-    wd.findElement(By.name("submit.delete.CDKTP8NFSZ6L2")).click();
-    wd.findElement(By.xpath("//a[@id='nav-link-accountList']//span[.='Account & Lists']")).click();
+    wd.findElement(By.xpath("//div[@id='upsell_0_0']/div/a/img")).click();
+    wd.findElement(By.id("add-to-cart-button")).click();
+    wd.findElement(By.linkText("Cart3")).click();
+    wd.findElement(By.name("submit.delete.C3S57V85AZUJQ3")).click();
     wd.findElement(By.linkText("Not Arty? Sign Out")).click();
   }
 
