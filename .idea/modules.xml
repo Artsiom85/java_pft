@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Amazon-web-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/Amazon-web-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Amazon-web-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Amazon-web-tests_main.iml" group="Amazon-web-tests" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Amazon-web-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Amazon-web-tests_test.iml" group="Amazon-web-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Lessons-2.iml" filepath="$PROJECT_DIR$/.idea/modules/Lessons-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Lessons-2_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Lessons-2_main.iml" group="Lessons-2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Lessons-2_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Lessons-2_test.iml" group="Lessons-2" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests_main.iml" group="addressbook-web-tests" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests_test.iml" group="addressbook-web-tests" />

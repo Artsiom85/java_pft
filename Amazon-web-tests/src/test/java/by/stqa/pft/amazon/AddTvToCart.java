@@ -1,16 +1,16 @@
 package by.stqa.pft.amazon;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
 import java.io.File;
-
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.*;
+import java.util.concurrent.TimeUnit;
 
 public class AddTvToCart {
   FirefoxDriver wd;
@@ -43,14 +43,16 @@ public class AddTvToCart {
     wd.findElement(By.id("twotabsearchtextbox")).click();
     wd.findElement(By.id("twotabsearchtextbox")).clear();
     wd.findElement(By.id("twotabsearchtextbox")).sendKeys("smart tv");
+    wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     wd.findElement(By.cssSelector("input.nav-input")).click();
-    wd.findElement(By.xpath("//li[@id='result_3']/div/div[2]/div/div[1]/div/div/a/img")).click();
-    wd.findElement(By.id("add-to-cart-button")).click();
-    wd.findElement(By.xpath("//div[@id='upsell_0_0']/div/a/img")).click();
+    if (!wd.findElement(By.xpath("//select[@id='sort']//option[3]")).isSelected()) {
+      wd.findElement(By.xpath("//select[@id='sort']//option[3]")).click();
+    }
+    wd.findElement(By.cssSelector("img.s-access-image")).click();
     wd.findElement(By.id("add-to-cart-button")).click();
     wd.findElement(By.linkText("Cart3")).click();
-    wd.findElement(By.name("submit.delete.C3S57V85AZUJQ3")).click();
-    wd.findElement(By.linkText("Not Arty? Sign Out")).click();
+    wd.findElement(By.linkText("Sign Out")).click();
+
   }
 
   @AfterMethod
@@ -65,5 +67,8 @@ public class AddTvToCart {
     } catch (NoAlertPresentException e) {
       return false;
     }
+  }
+
+  private class Webdriver {
   }
 }
