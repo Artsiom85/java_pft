@@ -17,8 +17,7 @@ public class AddTvToCart {
 
   @BeforeMethod
   public void setUp() throws Exception {
-    FirefoxBinary bin = new FirefoxBinary(new File("c:\\Program Files\\Mozilla Firefox\\firefox.exe"));
-    wd = new FirefoxDriver(bin, new FirefoxProfile());
+    wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get("https://www.amazon.com/");
     login("korolev.artem87@gmail.com", "Amazon2017");
